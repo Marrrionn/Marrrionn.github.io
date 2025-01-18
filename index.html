@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>This is my Website</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt sit, quam necessitatibus aperiam cupiditate consequatur ipsam repellat, asperiores maxime sequi possimus! Reiciendis voluptatibus alias blanditiis quisquam minima libero quis nemo.</p>
-
-            </div>
+        <div class="left-section">
+            <h1 class="logo">RedSocial</h1>
+            <p class="tagline">Connect with friends and the world around you on RedSocial.</p>
         </div>
-        <div class="row">
-            <p><a href="http://">About Me</a></p>
+        <div class="right-section">
+            <div class="login-box">
+                <form action="login.php" method="POST">
+                    <input type="email" name="email" placeholder="Email address or phone number" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit" class="login-button">Log In</button>
+                    <a href="#" class="forgot-password">Forgotten password?</a>
+                    <hr>
+                    <button type="button" class="create-account">Create New Account</button>
+                </form>
+            </div>
+            <p class="extra-links"><a href="#">Create a Page</a> for a celebrity, brand, or business.</p>
         </div>
     </div>
-    
 </body>
 </html>
