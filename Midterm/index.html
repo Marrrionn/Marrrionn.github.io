@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marion Lienne L. Gemino - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            margin: auto;
+            box-shadow: 0px 0px 10px gray;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative;
+        }
+        h1 {
+            text-align: left;
+        }
+        h2 {
+            text-align: center;
+        }
+        .profile-img {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            border-radius: 50%;
+        }
+        .objective {
+            margin-top: 180px;
+        }
+        ul {
+            list-style-type: square;
+        }
+        .theme-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: orange;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px gray;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+        .dark-mode .container {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-button" onclick="toggleTheme()">Change Color</button>
+    <div class="container">
+        <h1>Marion Lienne L. Gemino</h1>
+        <img src="image.jpg" alt="Profile Picture" class="profile-img">
+        <div class="objective">
+            <h2>Objective</h2>
+            <p>To work as a successful professional in a challenging environment and to keep adding value to the organization that I represent to serve, while concurrently upgrading my skills, knowledge, and financial growth.</p>
+        </div>
+        
+        <h2>Education</h2>
+        <ul>
+            <li>College: BSITIB, FeuTech (2021 - Current)</li>
+            <li>Senior High School: Manila Central University (2019 - 2021)</li>
+            <li>Junior High School: Holy Spirit Academy of Malolos (2014 - 2018)</li>
+            <li>Elementary: Holy Spirit Academy of Malolos (2008 - 2014)</li>
+        </ul>
+        
+        <h2>Work Experience</h2>
+        <p>Special Program for the Employment of Students (May 1, 2017 - May 29, 2019)</p>
+        <ul>
+            <li>Encoding of PhilHealth Applicants</li>
+            <li>Recording of Lab results</li>
+        </ul>
+        
+        <h2>Personal Information</h2>
+        <ul>
+            <li>Date of Birth: January 12, 2002</li>
+            <li>Place of Birth: Manila</li>
+            <li>Age: 18 Years Old</li>
+            <li>Mother: Lilibeth L. Gemino</li>
+            <li>Father: Melito R. Gemino</li>
+            <li>Religion: Roman Catholic</li>
+            <li>Occupation: Student</li>
+        </ul>
+        
+        <h2>Special Skills</h2>
+        <ul>
+            <li>Good analytical skills</li>
+            <li>Fluent in English and Filipino Language</li>
+            <li>Good computer proficiency</li>
+            <li>Fast learner</li>
+            <li>Excellent in working as a team</li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
