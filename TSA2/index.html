@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Animation Fix</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            margin-right: 100px; /* Move buttons further left */
+        }
+        .button {
+            width: 150px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .button:hover {
+            width: 180px;
+            height: 50px;
+        }
+        .monday { background-color: purple; }
+        .tuesday { background-color: pink; color: black; }
+        .wednesday { background-color: blue; }
+        .thursday { background-color: green; }
+        .friday { background-color: yellow; color: black; }
+        .saturday { background-color: orange; }
+        .sunday { background-color: red; }
+
+        .box-container {
+            position: relative;
+            width: 300px; /* Increased container size */
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+        }
+        .box {
+            position: absolute;
+            width: 250px; /* Increased box size */
+            height: 250px;
+            border: 5px solid;
+            background-color: transparent;
+            transition: transform 2.5s ease-in-out, opacity 2.5s ease-in-out;
+        }
+
+        @keyframes moveUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 1; }
+        }
+        @keyframes dropDown {
+            0% { transform: translateY(-100vh); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="buttons" id="buttons">
+            <button class="button monday" onclick="changeBoxColor('purple')">Monday</button>
+            <button class="button tuesday" onclick="changeBoxColor('pink')">Tuesday</button>
+            <button class="button wednesday" onclick="changeBoxColor('blue')">Wednesday</button>
+            <button class="button thursday" onclick="changeBoxColor('green')">Thursday</button>
+            <button class="button friday" onclick="changeBoxColor('yellow')">Friday</button>
+            <button class="button saturday" onclick="changeBoxColor('orange')">Saturday</button>
+            <button class="button sunday" onclick="changeBoxColor('red')">Sunday</button>
+        </div>
+
+        <div class="box-container" id="box-container"></div>
+    </div>
+
+    <script>
+        function changeBoxColor(color) {
+            let boxContainer = document.querySelector(".box-container");
+            let oldBox = document.querySelector("#box");
+            let buttons = document.querySelectorAll(".button");
+
+            // Disable buttons during transition
+            buttons.forEach(button => button.disabled = true);
+
+            // Store the original color of the old box
+            if (oldBox) {
+                let oldColor = oldBox.style.borderColor;
+                oldBox.style.animation = "moveUp 2.5s forwards";
+                oldBox.style.backgroundColor = lightenColor(oldColor, 0.3); // Keep a lighter version of its original color
+            }
+
+            // Create a new box with a lighter inside color
+            let newBox = document.createElement("div");
+            newBox.classList.add("box");
+            newBox.style.borderColor = color;
+            newBox.style.animation = "dropDown 2.5s forwards";
+            newBox.style.transform = "translateY(-100vh)";
+            newBox.style.backgroundColor = lightenColor(color, 0.3);
+
+            boxContainer.appendChild(newBox);
+            newBox.id = "box";
+
+            setTimeout(() => {
+                if (oldBox) {
+                    oldBox.remove();
+                }
+                newBox.style.backgroundColor = "transparent"; // Reset new box inside color after transition
+                buttons.forEach(button => button.disabled = false);
+            }, 2500);
+        }
+
+        // Function to generate a lighter shade of a given color
+        function lightenColor(color, factor) {
+            let tempDiv = document.createElement("div");
+            tempDiv.style.color = color;
+            document.body.appendChild(tempDiv);
+            let computedColor = getComputedStyle(tempDiv).color;
+            document.body.removeChild(tempDiv);
+            
+            let rgb = computedColor.match(/\d+/g).map(Number);
+            let lighterRGB = rgb.map(channel => Math.min(255, Math.floor(channel + (255 - channel) * factor)));
+
+            return `rgb(${lighterRGB.join(", ")})`;
+        }
+    </script>
+
+</body>
+</html>
