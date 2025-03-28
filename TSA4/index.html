@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Guide</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .menu-item {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #444;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        }
+        .menu-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.4);
+        }
+        .preview-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            display: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .menu-item:hover .preview-overlay {
+            display: block;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1000;
+            color: white;
+            padding: 50px;
+            overflow-y: auto;
+            text-align: center;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        .overlay button {
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-shadow: 2px 2px 8px rgba(255, 255, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 class="mb-4 text-warning">Hapag Kubo</h1>
+        <div class="row">
+            <div class="col-md-3 menu-item" onclick="showDetails('Adobo House', 'Filipino Cuisine', '10AM - 10PM', '₱250', 'Adobo is one of the most iconic and beloved Filipino dishes, known for its rich, savory, and slightly tangy flavor. It is traditionally made by braising meat—commonly chicken, pork, or a combination of both—in a mixture of soy sauce, vinegar, garlic, bay leaves, and black peppercorns. The slow cooking process allows the flavors to meld together, creating a dish that is both hearty and deeply satisfying.', 'adobo-bg.jpg')">
+                <img src="adobo.jpg" class="img-fluid rounded" alt="Adobo House">
+                <div class="preview-overlay">Adobo House<br>Filipino Cuisine</div>
+            </div>
+            <div class="col-md-3 menu-item" onclick="showDetails('Sinigang Spot', 'Filipino Cuisine', '11AM - 11PM', '₱280', 'Sinigang is a beloved Filipino soup known for its distinct sour and savory flavor. It is traditionally made with pork, beef, shrimp, or fish, simmered in a tangy broth flavored with tamarind, tomatoes, and a mix of fresh vegetables like kangkong (water spinach), sitaw (long beans), eggplant, and radish..', 'sinigang-bg.jpg')">
+                <img src="siniganag.jpg" class="img-fluid rounded" alt="Sinigang Spot">
+                <div class="preview-overlay">Sinigang Spot<br>Filipino Cuisine</div>
+            </div>
+            <div class="col-md-3 menu-item" onclick="showDetails('Lechon Fiesta', 'Filipino Cuisine', '9AM - 11PM', '₱550', 'Crispy Lechon Belly is a Filipino delicacy known for its golden, crunchy skin and tender, flavorful meat.', 'lechon-bg.jpg')">
+                <img src="CrispyLechon.jpg" class="img-fluid rounded" alt="Lechon Fiesta">
+                <div class="preview-overlay">Lechon Fiesta<br>Filipino Cuisine</div>
+            </div>
+            <div class="col-md-3 menu-item" onclick="showDetails('Halo-Halo Haven', 'Filipino Cuisine', '10AM - 12AM', '₱150', 'A colorful dessert with sweet ingredients, topped with ube ice cream.', 'halo-halo-bg.jpg')">
+                <img src="Halo-Halo.jpeg" class="img-fluid rounded" alt="Halo-Halo Haven">
+                <div class="preview-overlay">Halo-Halo Haven<br>Filipino Cuisine</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <button class="btn btn-warning" onclick="hideDetails()">Main Menu</button>
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-category"></p>
+        <p id="overlay-time"></p>
+        <p id="overlay-price"></p>
+        <p id="overlay-description"></p>
+    </div>
+
+    <script>
+        function showDetails(title, category, time, price, description, bgImage) {
+            document.getElementById('overlay-title').innerText = title;
+            document.getElementById('overlay-category').innerText = 'Category: ' + category;
+            document.getElementById('overlay-time').innerText = 'Open: ' + time;
+            document.getElementById('overlay-price').innerText = 'Price: ' + price;
+            document.getElementById('overlay-description').innerText = description;
+            document.getElementById('overlay').style.backgroundImage = 'url(' + bgImage + ')';
+            document.getElementById('overlay').style.display = 'block';
+        }
+        function hideDetails() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
