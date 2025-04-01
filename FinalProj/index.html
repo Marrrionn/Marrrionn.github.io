@@ -7,13 +7,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('https://raw.githubusercontent.com/Marrrionn/Marrrionn.github.io/refs/heads/main/FinalProj/Background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        .background-img {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
         .location-item {
             cursor: pointer;
@@ -69,6 +75,7 @@
     </style>
 </head>
 <body>
+    <img src="Background.png" class="background-img" alt="Background">
     <div class="container text-center mt-5">
         <h1 class="mb-4 text-warning">Pokémon GO</h1>
         <div class="row">
@@ -90,7 +97,6 @@
             </div>
         </div>
     </div>
-
     <div class="overlay" id="overlay">
         <button class="btn btn-warning" onclick="hideDetails()">Back to Map</button>
         <h2 id="overlay-title"></h2>
@@ -99,7 +105,6 @@
         <p id="overlay-price"></p>
         <p id="overlay-description"></p>
     </div>
-
     <script>
         function showDetails(title, category, time, price, description, bgImage) {
             document.getElementById('overlay-title').innerText = title;
