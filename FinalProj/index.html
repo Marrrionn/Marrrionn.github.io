@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
-            background: url('background.png') no-repeat center center/cover;
+            background-image: url('./background.png'); /* Ensure correct path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -45,8 +48,9 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-size: cover;
+            background-size: cover !important;
             background-position: center;
+            background-repeat: no-repeat;
             z-index: 1000;
             color: white;
             padding: 40px;
@@ -68,19 +72,19 @@
     <div class="container text-center mt-5">
         <h1 class="mb-4 text-warning">Pokémon GO</h1>
         <div class="row">
-            <div class="col-md-3 location-item" onclick="showDetails('PokéStop - City Park', 'PokéStop', '24/7', 'Free', 'City Park is a vibrant and popular PokéStop located at the heart of the city. It is always bustling with trainers collecting essential items like Poké Balls, Potions, and Berries. Whether you are a beginner or an experienced trainer, City Park offers the perfect spot to stock up on supplies for your next adventure. It is also a great place to meet other players and team up for some friendly battles. Accessible 24/7 and free to visit, this PokéStop is a must-stop for all Pokémon GO enthusiasts.', 'pokestop-bg.jpg')">
+            <div class="col-md-3 location-item" onclick="showDetails('PokéStop - City Park', 'PokéStop', '24/7', 'Free', 'City Park is a vibrant and popular PokéStop located at the heart of the city. It is always bustling with trainers collecting essential items like Poké Balls, Potions, and Berries. Whether you are a beginner or an experienced trainer, City Park offers the perfect spot to stock up on supplies for your next adventure. It is also a great place to meet other players and team up for some friendly battles. Accessible 24/7 and free to visit, this PokéStop is a must-stop for all Pokémon GO enthusiasts.', './images/pokestop-bg.jpg')">
                 <img src="Pokeball.png" class="img-fluid rounded" alt="PokéStop">
                 <div class="preview-overlay">PokéStop - City Park<br>Collect Items</div>
             </div>
-            <div class="col-md-3 location-item" onclick="showDetails('Pewter Gym', 'Gym', 'Open 24/7', 'Free', 'Pewter Gym is a renowned battle arena where trainers can test their skills against the toughest gym leaders. Whether you are seeking to challenge yourself or level up your Pokémon, Pewter Gym offers a thrilling experience for both casual and competitive trainers. The gym is open around the clock, so you can battle any time you are ready. It is completely free to enter, but be prepared to face fierce opponents. Conquer the gym and claim victory to earn prestigious rewards and battle for gym control!', 'gym-bg.jpg')">
+            <div class="col-md-3 location-item" onclick="showDetails('Pewter Gym', 'Gym', 'Open 24/7', 'Free', 'Pewter Gym is a renowned battle arena where trainers can test their skills against the toughest gym leaders. Whether you are seeking to challenge yourself or level up your Pokémon, Pewter Gym offers a thrilling experience for both casual and competitive trainers. The gym is open around the clock, so you can battle any time you are ready. It is completely free to enter, but be prepared to face fierce opponents. Conquer the gym and claim victory to earn prestigious rewards and battle for gym control!', './images/gym-bg.jpg')">
                 <img src="Pokemongym.png" class="img-fluid rounded" alt="Gym">
                 <div class="preview-overlay">Pewter Gym<br>Battle for Control</div>
             </div>
-            <div class="col-md-3 location-item" onclick="showDetails('About', 'Spawn Zone', 'Random Timings', 'Varies', 'In this special zone, rare Pokémon such as Dragonite, Snorlax, and other legendary creatures are known to spawn. This area attracts experienced trainers seeking rare spawns to catch powerful Pokémon. The spawn times vary randomly, so patience and dedication are key to success. While the area is unpredictable, the rewards are worth the effort, and you might just encounter some of the rarest Pokémon in the game. The zone is not limited to any specific hours, making it an exciting spot for trainers willing to keep coming back.', 'rare-spot-bg.jpg')">
+            <div class="col-md-3 location-item" onclick="showDetails('Spawn Zone', 'Spawn Zone', 'Random Timings', 'Varies', 'In this special zone, rare Pokémon such as Dragonite, Snorlax, and other legendary creatures are known to spawn. This area attracts experienced trainers seeking rare spawns to catch powerful Pokémon. The spawn times vary randomly, so patience and dedication are key to success. While the area is unpredictable, the rewards are worth the effort, and you might just encounter some of the rarest Pokémon in the game. The zone is not limited to any specific hours, making it an exciting spot for trainers willing to keep coming back.', './images/rare-spot-bg.jpg')">
                 <img src="Legendary.png" class="img-fluid rounded" alt="Rare Pokémon">
                 <div class="preview-overlay">Spawn Zone<br>Pokémon GO</div>
             </div>
-            <div class="col-md-3 location-item" onclick="showDetails('Raid Battle Arena', 'Raid', 'Event-Based', 'Raid Pass', 'Raid Battle Arenas are where the biggest and most exciting challenges await in Pokémon GO. These special locations are set up for event-based raid battles where trainers team up to battle powerful Legendary Pokémon. To participate, you will need a Raid Pass, which can be obtained from PokéStops or purchased. The arena is constantly updated with new raid events, so there is always something new to look forward to. Whether you are tackling a new Legendary or taking on a challenging raid boss, these arenas offer a high-energy and rewarding experience. Raid battles are a fantastic opportunity to work together with fellow trainers and earn rare rewards.', 'raid-bg.jpg')">
+            <div class="col-md-3 location-item" onclick="showDetails('Raid Battle Arena', 'Raid', 'Event-Based', 'Raid Pass', 'Raid Battle Arenas are where the biggest and most exciting challenges await in Pokémon GO. These special locations are set up for event-based raid battles where trainers team up to battle powerful Legendary Pokémon. To participate, you will need a Raid Pass, which can be obtained from PokéStops or purchased. The arena is constantly updated with new raid events, so there is always something new to look forward to. Whether you are tackling a new Legendary or taking on a challenging raid boss, these arenas offer a high-energy and rewarding experience. Raid battles are a fantastic opportunity to work together with fellow trainers and earn rare rewards.', './images/raid-bg.jpg')">
                 <img src="Raid.png" class="img-fluid rounded" alt="Raid Arena">
                 <div class="preview-overlay">Raid Battle Arena<br>Join Raids</div>
             </div>
